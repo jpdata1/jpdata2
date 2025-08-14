@@ -8,9 +8,9 @@
 }}
 select 
 COUNTRY_ID,
-COUNTRY_NAME,
+initcap(COUNTRY_NAME) as country_name,
 REGION_ID,
-LOAD_TIME
+CURRENT_TIMESTAMP as LOAD_TIME
 from {{ref('stg_countries')}}
 
 {% if is_incremental() %}
